@@ -1,0 +1,79 @@
+Projeto final AV3 RLA
+Simulador de Financiamento de Carro(Sistema SAC)
+
+Link do repositório GITHUB: https://github.com/Pixisnauta/ProjetoFinalAV3-RLA
+
+Equipe: João Arthur de Oliveira Taumaturgo Santiago e João Paulo de Carvalho Veras
+
+Tema: Automação de cálculos financeiros e fiscais para aquisição de automóveis
+
+Objetivo: Desenvolver um programa que auxilie as pessoas a tomar uma decisão no momento  
+de comprar um carro, simulando custo real de financiamento utilizando a Tabela SAC (Sistema 
+de Amortização Constante, prever futuros gastos obrigatórios, como IPVA, de acordo com o 
+estado da compra, além de oferecer um diagnóstico sobre a situação financeira do usuário 
+baseado no valor informado do veículo.
+
+Problema: O comprador foca apenas na primeira parcela e acaba se esquecendo de outros 
+gastos obrigatórios (Ex: IPVA) , saber o custo do IPVA devido a drástica variação entre os estados,   
+avaliar se a compra compromete a saúde financeira e julgar se a compra vale a pena ou não.
+Funcionalidades previstas: Calcular IPVA, gerar histórico de IPVA com base no estado da compra, 
+calcular o financiamento baseado na tabela SAC (Sistema de Amortização Constante), analisar o 
+cenário da compra, avaliar a situação financeira do cliente com base no valor do automóvel e 
+exibir todas as funcionalidades apresentadas em um relatório final.
+
+Estrutura lógica planejada: O código está separado por seis funções principais, que são: 
+IniciarSimulacao, calcularIpva, gerarHistoricoIpva, calcularFinanciamentoSAC, 
+calcularTempoSuficienteParaCompra e a de exibirRelatorioFinal
+
+iniciarSimulacao: Realiza um método de checagem para duas coisas, se o valor dado na entrada 
+é de pelo menos 20% do valor do carro e se a quantidade de parcelas é entre 12 e 60 meses. Se 
+pelo menos um desses cenários não for respeitado, o código mostrará uma mensagem de aviso.
+
+calcularIpva: Calcula o valor do IPVA baseado no estado escolhido pelo usuário. Se o estado for 
+São Paulo (SP), Rio de Janeiro (RJ) ou Minas Gerais (MG), a taxa cobrada será de 4%. Para os 
+demais estados, a taxa será de 3%. Depois de selecionar o estado, a função fará a multiplicação 
+do valor do carro com a taxa e entregará o resultado.
+
+gerarHistoricoIpva: Cria uma lista de previsão do valor do IPVA até o último ano do 
+financiamento. Ela fará um calculo para descobrir anos o financiamento irá durar a partir das 
+parcelas. Após isso ela calcula o valor do primeiro ano. Para os anos seguintes, ela vai descontar 
+10% do valor do carro para simular a desvalorização do veículo e calcular o IPVA do próximo 
+ano.
+
+calcularFinanciamentoSac: Calcula o valor de todas as parcelas do financiamento mês a mês 
+usando a Tabela SAC. O sistema calcula os juros sobre o que usuário ainda deve, soma com a 
+amortização fixa e descobre o valor da parcela daquele mês. Como a dívida diminui todo mês, 
+os juros diminuem e as parcelas vão ficando mais baratas.
+
+calcularTempoSuficienteParaCompra: Descobre em quanto tempo o usuário conseguiria 
+comprar o carro à vista de economiza-se dinheiro ao em vez de financiar. Ela simula uma conta 
+poupança que de mês em mês irá somar o dinheiro que a pessoa juntou e adiciona um 
+rendimento de 0,5% de juros com base no saldo acumulado. A simulação só para quando o o 
+fundo da poupança alcançar o valor total do carro.
+
+exibirRelatorio: É a função principal. Ela chama primeiro a “iniciarSimulacao” para avaliar se 
+pode continuar ou não, manda calcular o financiamento SAC e o histórico do IPVA, compara a 
+primeira parcela com 30% do sálario da pessoa. Se passar dos 30%, aparece um aviso de que é 
+arriscado o investimento e chama a função “calcularTempoSuficienteParaCompra” para dizer 
+com quantos meses o usuário poderá comprar o veículo á vista. No contrário, ele parabeniza e 
+mostra uma mensagem dizendo que o invesmento não tem risco de afetar a saúde financeira, 
+além de mostrar todos os dados anteriores no console.
+
+Entradas esperadas:
+(Number) Preço total de tabela do veículo
+(Number) Valor pago à vista no ato da compra
+(Number) Quantidade de meses do financiamento
+(Number) Renda mensal líquida do usuário
+(String) Sigla da Unidade Federal (ex: “SP”, “MG”, “RJ”,etc.)
+(Number) Taxa de juros aplicada ao mês
+
+Saídas esperadas:
+Cenários de Erro: “Entrada insuficiente” ou “Número de parcelas inválido
+Métricas do Financiamento:
+Valor da entrada e UF selecionada
+Valor exato em reais da 1ª parcela
+Valor exato em reais da última parcela
+Valor do IPVA no 1ª ano
+Diagnóstico de Viabilidade:
+Sucesso: "PARABÉNS: O financiamento cabe no seu bolso."
+Arriscado: "Melhor poupar! Você teria o carro em X meses."
