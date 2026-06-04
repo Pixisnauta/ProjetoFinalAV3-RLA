@@ -22,8 +22,8 @@ ou "Inspecionar Elemento" dependendo do seu navegador
    irá começar a fazer as perguntas na tela
 
 *OBS: Se ao tentar compilar o código, aparecer um aviso do navegador, digite
-'allow pasting' ou 'permitir colagem' dependendo da linguagem do seu navegador
-e cole novamente
+'allow pasting' ou 'permitir colagem' ,dependendo da linguagem do seu navegador,
+cole e pressione ENTER novamente para executar
 
 ----------------------------------------------------------------------
 MÉTODO 2: EXECUTAR NO PROGRAMIZ
