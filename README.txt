@@ -23,6 +23,7 @@ ou "Inspecionar Elemento" dependendo do seu navegador
 
 *OBS: Se ao tentar compilar o código, aparecer um aviso do navegador, digite
 'allow pasting' ou 'permitir colagem' dependendo da linguagem do seu navegador
+e cole novamente
 
 ----------------------------------------------------------------------
 MÉTODO 2: EXECUTAR NO PROGRAMIZ
